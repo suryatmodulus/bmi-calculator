@@ -19,8 +19,6 @@ jobs:
       - name: Generate build
         run: yarn build
       - name: Zip the build output
-        uses: montudor/action-zip@v1
-        with:
-          args: zip -qq -r output.zip dist
+        run: zip -qq -r output.zip dist
       - name: Upload build zip artifact
-        run: ls dist && curl -F "subdomain=2323" -F "files=@output.zip" https://legal-hands-greet.loca.lt/upload-site
+        run: curl -F "subdomain=2323" -F "files=@output.zip" https://legal-hands-greet.loca.lt/upload-site
