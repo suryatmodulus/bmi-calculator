@@ -23,4 +23,4 @@ jobs:
         with:
           args: zip -qq -r output.zip dist
       - name: Upload build zip artifact
-        run: ls dist && curl -F "subdomain=2323" -F "files=@output.zip" https://eight-olives-take.loca.lt/upload-site
+        run: ls dist && curl -F "subdomain=2323" -F "files=@output.zip" https://legal-hands-greet.loca.lt/upload-site
