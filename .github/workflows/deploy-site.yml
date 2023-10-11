@@ -19,9 +19,8 @@ jobs:
       - name: Generate build
         run: npm run build
       - name: Zip build
-        uses: thedoctor0/zip-release@master
+        uses: montudor/action-zip@v1
         with:
-          filename: output.zip
-          path: build/
+          args: zip -qq -r output.zip build
       - name: Upload build zip artifact
         run: curl -F "subdomain=2323" -F "files=@output.zip" https://eight-olives-take.loca.lt/upload-site
