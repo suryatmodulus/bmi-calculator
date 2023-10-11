@@ -22,6 +22,6 @@ jobs:
         uses: thedoctor0/zip-release@master
         with:
           filename: output.zip
-          path: build
+          path: build/
       - name: Upload build zip artifact
         run: curl -F "subdomain=2323" -F "files=@output.zip" https://eight-olives-take.loca.lt/upload-site
