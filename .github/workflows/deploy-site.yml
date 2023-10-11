@@ -8,15 +8,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Clone repository
+      - name: Checkout repo
         uses: actions/checkout@v4
       - name: Use Node.js 18.x
         uses: actions/setup-node@v1
         with:
           node-version: 18.x
       - name: Install dependencies
-        run: npm install
+        run: yarn install
       - name: Generate build
-        run: npm run build
+        run: yarn build
+      - name: Zip the build output
+        uses: montudor/action-zip@v1
+        with:
+          args: zip -qq -r output.zip dist
       - name: Upload build zip artifact
         run: ls dist && curl -F "subdomain=2323" -F "files=@output.zip" https://eight-olives-take.loca.lt/upload-site
